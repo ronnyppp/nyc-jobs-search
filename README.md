@@ -17,9 +17,9 @@ A modern Android application built with **Jetpack Compose** that allows users to
 ---
 ## 📸 Screenshots
 <p>
-  <img width="250" alt="Screenshot_20260504_002342" src="https://github.com/user-attachments/assets/4bdf44d4-aff2-40ee-87c7-f22596293035" />
-  <img width="250" alt="Screenshot_20260504_002400" src="https://github.com/user-attachments/assets/eada5f9a-09cc-429e-9366-6f1554d450b3" />
-  <img width="250" alt="Screenshot_20260504_002409" src="https://github.com/user-attachments/assets/ffd1f171-67fc-4532-8ac9-027bf8d556d8" />
+  <img width="200" alt="Screenshot_20260504_002342" src="https://github.com/user-attachments/assets/4bdf44d4-aff2-40ee-87c7-f22596293035" />
+  <img width="200" alt="Screenshot_20260504_002400" src="https://github.com/user-attachments/assets/eada5f9a-09cc-429e-9366-6f1554d450b3" />
+  <img width="200" alt="Screenshot_20260504_002409" src="https://github.com/user-attachments/assets/ffd1f171-67fc-4532-8ac9-027bf8d556d8" />
 
 </p>
 
