@@ -30,5 +30,7 @@ git clone https://github.com/ronnyppp/nyc-jobs-search.git
 cd leanly-ai-app
 
 Open the project in Android Studio
+
 Sync Gradle
+
 Run the app on an emulator or physical device
