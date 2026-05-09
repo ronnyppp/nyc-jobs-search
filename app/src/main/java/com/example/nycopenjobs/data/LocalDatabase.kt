@@ -14,23 +14,22 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface JobPostDao {
-    // getAll()
+    // getAll jobs from latest update
     @Query("SELECT * FROM JobPost ORDER BY postingLastUpdated DESC")
     fun getAll(): Flow<List<JobPost>>
     // getOne()
     @Query("SELECT * FROM JobPost WHERE jobId = :id")
     fun get(id: Int): JobPost
 
-    // add two queries for favorite
-    // Get all favorite job posts (assuming you have an 'isFavorite' field)
+    // Get all favorite job posts
     @Query("SELECT * FROM JobPost WHERE favorite = 1 ORDER BY postingLastUpdated DESC")
     suspend fun getFavorites(): List<JobPost>
 
-    // Mark a job post as a favorite (by updating the 'isFavorite' field)
+    // Mark a job post as a favorite
     @Query("UPDATE JobPost SET favorite = 1 WHERE jobId = :id")
     suspend fun addFavorite(id: Int)
 
-    // Remove a job post from favorites (by setting 'isFavorite' to false)
+    // Remove job from favorites
     @Query("UPDATE JobPost SET favorite = 0 WHERE jobId = :id")
     suspend fun removeFavorite(id: Int)
 
@@ -43,7 +42,7 @@ interface JobPostDao {
 @Database(entities = [JobPost::class], version = 1, exportSchema = false)
 abstract class LocalDatabase : RoomDatabase() {
 
-    // we use a DAO (Data Access Object)
+    // data access object
     abstract fun jobPostDao(): JobPostDao
 
     companion object {
@@ -56,7 +55,7 @@ abstract class LocalDatabase : RoomDatabase() {
             Log.i(TAG, "getting database")
             return Instance ?: synchronized(this) {
                 Room.databaseBuilder(context, LocalDatabase::class.java, DATABASE)
-                    .fallbackToDestructiveMigration().build().also {Instance = it}
+                    .fallbackToDestructiveMigration(false).build().also {Instance = it}
             }
         }
     }

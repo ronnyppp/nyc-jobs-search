@@ -11,6 +11,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface NycOpenDataApi {
+    // fetch postings
     @GET("kpav-sd4t.json?posting_type=External&\$order=posting_updated%20DESC&")
     suspend fun getJobPostings(
         @Query("\$offset") offset:Int,
@@ -22,7 +23,7 @@ class AppRemoteApis {
     private val baseUrl = "https://data.cityofnewyork.us/resource/"
 
     private val contentType = MediaType.get("application/json; charset=utf-8")
-
+    // prevent crashes from unknown keys
     private val json = Json { ignoreUnknownKeys = true }
 
 
@@ -30,6 +31,7 @@ class AppRemoteApis {
         Log.i(TAG, "retrofit create API call")
         return Retrofit.Builder()
             .baseUrl(baseUrl)
+            // convert json to kotlin objects
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()
             .create(NycOpenDataApi::class.java)

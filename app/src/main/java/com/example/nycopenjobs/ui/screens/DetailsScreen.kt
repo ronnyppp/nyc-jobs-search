@@ -94,8 +94,6 @@ fun JobDetailsSection(jobPost: JobPost) {
         DetailedRow("Job Category", jobPost.jobCategory)
         DetailedRow("Work Location",jobPost.agencyLocation)
         Spacer(modifier = Modifier.size(15.dp))
-        //DetailedRow("Division", jobPost.divisionWorkUnit}")
-
         Text("Job Description: ${jobPost.jobDescription}", style = MaterialTheme.typography.bodySmall)
         Spacer(modifier = Modifier.size(8.dp))
         Text(jobPost.jobDescription, style = MaterialTheme.typography.bodyMedium, lineHeight = 20.sp)

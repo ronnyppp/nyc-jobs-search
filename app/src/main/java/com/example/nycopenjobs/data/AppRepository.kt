@@ -13,7 +13,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 
 interface AppRepository {
-    // TODO: methods to get job postings
 
     fun getScrollPosition(): Int
     fun setScrollPosition(position: Int)
@@ -23,7 +22,6 @@ interface AppRepository {
     suspend fun addJobToFavorites(jobId: Int)
     suspend fun removeJobFromFavorites(jobId: Int)
 }
-// TODO: api repo implementation
 
 class AppRepositoryImpl(
     private val remoteApi: NycOpenDataApi,
@@ -49,6 +47,7 @@ class AppRepositoryImpl(
         updateOffset()
         val localData = dao.getAll().first()
         updateTotalJobs(localData.size)
+        // fetch more jobs when local data exhausted
         if (offset == totalJobs) {
             Log.i(TAG, "getting job posting via API")
             val jobs = remoteApi.getJobPostings(offset)

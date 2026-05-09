@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+// model for storing job postings
 @Entity
 @Serializable
 data class JobPost(

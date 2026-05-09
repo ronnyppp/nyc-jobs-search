@@ -67,7 +67,7 @@ class HomeScreenViewModel(private val appRepository: AppRepository) : ViewModel(
     fun setScrollPosition(position: Int) {
         appRepository.setScrollPosition(position)
     }
-    // Fetch favorite jobs for the favorites screen
+    // Fetch favorite jobs
     fun getFavoriteJobs() {
         viewModelScope.launch {
             _favoriteUiState.value = HomeScreenUIState.Loading // Use the mutable StateFlow here
@@ -87,6 +87,7 @@ class HomeScreenViewModel(private val appRepository: AppRepository) : ViewModel(
     fun updateSearchQuery(query: String) {
         searchQuery = query
     }
+    // filter jobs for search
     fun filterJobs(jobs: List<JobPost>): List<JobPost> {
         if (searchQuery.isBlank()) return jobs
 

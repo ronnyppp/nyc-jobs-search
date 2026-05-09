@@ -45,7 +45,6 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = navController, startDestination = Screen.Home.route,
                         modifier = Modifier.padding(innerPadding)) {
                         composable("home") {
-                            // HomeScreen composable, pass navController to handle navigation
                             HomeScreen(
                                 viewModel = viewModel,
                                 navController = navController,

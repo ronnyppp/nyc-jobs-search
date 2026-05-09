@@ -71,6 +71,7 @@ fun HomeScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
+            // search field
         OutlinedTextField(
             value = viewModel.searchQuery,
             onValueChange = { viewModel.updateSearchQuery(it) },
@@ -118,6 +119,7 @@ fun JobListings(
     modifier: Modifier,
     navController: NavController
 ){
+    // prevent invalid scroll index
     val firstVisibleIndex = if (scrollPosition > jobs.size) 0 else scrollPosition
     val listState: LazyListState = rememberLazyListState(firstVisibleIndex)
 
@@ -126,6 +128,7 @@ fun JobListings(
             JobCard(jobPost, navController)
         }
     }
+    // detect when user reaches bottom of list
     LaunchedEffect(listState) {
         snapshotFlow { listState.layoutInfo.visibleItemsInfo.lastOrNull()?.index}
             .debounce(timeoutMillis = 500L)
